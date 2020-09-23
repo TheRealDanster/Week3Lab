@@ -16,11 +16,10 @@
         <form name="frm" method="post">
             First: <input type="number" name="first"><br>
             Second: <input type="number" name="second"><br>
-            <input type="submit" value="+" onclick="{document.frm.hdnbt.value=this.value;document.frm.submit();}">
-            <input type="submit" value="-" onclick="{document.frm.hdnbt.value=this.value;document.frm.submit();}">
-            <input type="submit" value="*" onclick="{document.frm.hdnbt.value=this.value;document.frm.submit();}">
-            <input type="submit" value="%" onclick="{document.frm.hdnbt.value=this.value;document.frm.submit();}">
-            <input type="hidden" name="hdnbt">
+            <input type="submit" value="+" name="operation">
+            <input type="submit" value="-" name="operation">
+            <input type="submit" value="*" name="operation">
+            <input type="submit" value="%" name="operation">
             <p>${message}</p>
         </form>
         <a href="AgeCalculatorServlet">Arithmetic Calculator</a>

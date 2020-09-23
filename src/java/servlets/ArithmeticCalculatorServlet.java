@@ -9,20 +9,20 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author cprg352
+ * @author Daniel Tompkins 000818339
  */
 public class ArithmeticCalculatorServlet extends HttpServlet {
     
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-                        throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         getServletContext().getRequestDispatcher("/WEB-INF/arithmeticCalculator.jsp").forward(request, response);
     }
     
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-                        throws ServletException, IOException {
-        String operation = request.getParameter("hdnbt");
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String operation = request.getParameter("operation");
+        System.out.println(operation);
+        
         String first = request.getParameter("first");
         String second = request.getParameter("second");
         request.setAttribute("first", first);
@@ -31,10 +31,7 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
         if (first == null || first.equals("") || second == null || second.equals("")) {
             request.setAttribute("message", "Result: Invalid");
             getServletContext().getRequestDispatcher("/WEB-INF/arithmeticCalculator.jsp").forward(request, response);
-            
-            return;
         } else {
-            
             int firstNum = parseInt(first);
             int secondNum = parseInt(second);
             int result = 0;
